@@ -75,9 +75,9 @@ class MainWindow(QMainWindow):
         # 单选按钮组
         self.checkBtnGroup = QButtonGroup(self)
         self.checkBtnGroup.addButton(self._ui.checkBox_ocr)
-        self.checkBtnGroup.addButton(self._ui.checkBox_det)
-        self.checkBtnGroup.addButton(self._ui.checkBox_recog)
-        self.checkBtnGroup.addButton(self._ui.checkBox_layoutparser)
+        # self.checkBtnGroup.addButton(self._ui.checkBox_det)
+        # self.checkBtnGroup.addButton(self._ui.checkBox_recog)
+        # self.checkBtnGroup.addButton(self._ui.checkBox_layoutparser)
         self.checkBtnGroup.setExclusive(True)
 
         # 添加按钮icon
@@ -85,10 +85,10 @@ class MainWindow(QMainWindow):
         self._ui.btnOpenDir.setIcon(self.getIcon("folder_open_grey"))
         self._ui.btnNext.setIcon(self.getIcon("next_grey"))
         self._ui.btnPrev.setIcon(self.getIcon("before_grey"))
-        self._ui.btnAddShape.setIcon(self.getIcon("add_grey"))
-        self._ui.btnEditShape.setIcon(self.getIcon("edit_grey"))
+        # self._ui.btnAddShape.setIcon(self.getIcon("add_grey"))
+        # self._ui.btnEditShape.setIcon(self.getIcon("edit_grey"))
         self._ui.btnSaveAll.setIcon(self.getIcon("done_grey"))
-        self._ui.btnBrightness.setIcon(self.getIcon("brightness_grey"))
+        # self._ui.btnBrightness.setIcon(self.getIcon("brightness_grey"))
         # self._ui.btnStartProcess.setIcon(self.getIcon("play_white"))
 
         # 按钮响应函数
@@ -869,6 +869,8 @@ class MainWindow(QMainWindow):
         # TODO：其他分析结果
 
     def add_ocr_results(self, result):
+        self._ui.listWidgetResults.clear()
+
         result = result[0]
         boxes = [line[0] for line in result]
         txts = [line[1][0] for line in result]
